@@ -28,3 +28,12 @@ Design Logic app with Http trigger and Blob Storage account connection
 * Save Logic App
 
 ## Create ARM template for Logic App standard 
+
+Link to ARM Template
+Link to Parameter File
+
+Use Az cli command to test ARM template 
+
+```
+az deployment group create --name ExampleDeployment --resource-group ExampleGroup --template-file storage.json --parameters 'storage.parameters.json'
+```
