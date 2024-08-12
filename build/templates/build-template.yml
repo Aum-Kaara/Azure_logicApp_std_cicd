@@ -1,0 +1,15 @@
+parameters:
+
+- name: azureSubscription
+  type: string
+
+jobs: 
+- job: Generate_Artifacts
+  displayName: Generate Artifacts
+  steps:
+  - publish: $(Pipeline.Workspace)/build/iac/*.json
+    displayName: Publish Logic App Artifact
+    artifact: 'artifacts'
+  
+
+        

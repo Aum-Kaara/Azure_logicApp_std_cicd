@@ -1,0 +1,14 @@
+{
+  "azureblob-ConnectionRuntimeUrl": {
+    "type": "String",
+    "value": "@appsetting('azureblob-ConnectionRuntimeUrl')"
+  },
+  "azureblob-Authentication": {
+    "type": "Object",
+    "value": {
+      "type": "Raw",
+      "scheme": "Key",
+      "parameter": "@appsetting('azureblob-connectionKey')"
+    }
+  }
+}

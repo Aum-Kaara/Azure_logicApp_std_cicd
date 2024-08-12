@@ -1,0 +1,1 @@
+az deployment group create --name logic_app_ci_cd --resource-group logic_app_ci_cd --template-file la-template.json --parameters 'la-parameters.json'

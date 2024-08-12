@@ -1,0 +1,16 @@
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+  azureSubscription: 'PreProd Resources'
+
+
+stages:
+
+- stage: Build
+  jobs: 
+  # Content Function App
+  - template: templates\build-template.yml
+    parameters: 
+      AzureSubscription: '$(azureSubscription)'

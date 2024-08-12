@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { 
+        "location": {
+            "value": "westus2"
+        },
+        "environmentName": {
+            "value": "dev"
+        },
+        "projectName": {
+            "value": "lacicd"
+        },
+        "logicAppName": {
+            "value": "la-name"
+        },
+        "appServicePlanName": {
+            "value": "lacicd-asp"
+        },
+        "storageName": {
+            "value": "salacicd"
+        },
+        "kind": {
+            "value": "StorageV2"
+        },
+        "skuName": {
+            "value": "Standard_LRS"
+        },
+        "skuTier": {
+            "value": "Standard"
+          }
+        }
+    }
