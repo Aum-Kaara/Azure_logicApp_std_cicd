@@ -37,3 +37,5 @@ Use Az cli command to test ARM template
 ```
 az deployment group create --name ExampleDeployment --resource-group ExampleGroup --template-file storage.json --parameters 'storage.parameters.json'
 ```
+
+## Create Azure Devops Pipeline
