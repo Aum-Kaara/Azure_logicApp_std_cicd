@@ -7,9 +7,21 @@ jobs:
 - job: Generate_Artifacts
   displayName: Generate Artifacts
   steps:
-  - publish: $(Pipeline.Workspace)/build/iac/*.json
-    displayName: Publish Logic App Artifact
-    artifact: 'artifacts'
+      - task: CopyFiles@2
+        displayName: Copy Template Files
+        condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+        inputs:
+          SourceFolder: '$(System.DefaultWorkingDirectory)\build\iac'
+          Contents: '**'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)\artifacts'
+
+      - task: PublishPipelineArtifact@1
+        displayName: Publish Artifact
+        condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)\artifacts'
+          ArtifactName: 'artifact'
+          publishLocation: pipeline
   
 
         
