@@ -39,3 +39,10 @@ az deployment group create --name ExampleDeployment --resource-group ExampleGrou
 ```
 
 ## Create Azure Devops Pipeline
+
+### Build Pipeline for Infra
+Create pipeline in Azure Devops to publish artifacts for release(Deploy) pipeline
+![image](https://github.com/user-attachments/assets/ea281a74-dd97-44b2-be59-50fe2f435361)
+
+### Deploy Pipeline for Infra
+Create pipeline in Azure Devops to deploy ARM template to Azure resource group 
