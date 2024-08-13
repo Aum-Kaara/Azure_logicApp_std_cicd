@@ -19,6 +19,14 @@ jobs:
 - job: Deploy_ARM
   displayName: Deploy ARM Template
   steps:
+    - task: DownloadBuildArtifacts@1
+      inputs:
+        buildType: 'specific'
+        project: '9ecb6417-1158-4ef5-8c27-3281daf12135'
+        pipeline: '6'
+        buildVersionToDownload: 'latest'
+        downloadType: 'specific'
+        downloadPath: '$(System.ArtifactsDirectory)'
     - task: AzureResourceManagerTemplateDeployment@3
       displayName: 'Deploy ARM Template'
       inputs:
@@ -29,8 +37,8 @@ jobs:
         resourceGroupName: ${{parameters.resourceGroupName}}
         location: ${{parameters.azureRegion}}
         templateLocation: 'Linked artifact'
-        csmFile: '$(Pipeline.Workspace)\cipipeline\artifact\${{parameters.templateFileName}}'
-        csmParametersFile: '$(Pipeline.Workspace)\cipipeline\artifact\${{parameters.parameterFileName}}'
+        csmFile: '$(System.ArtifactsDirectory)\artifact\${{parameters.templateFileName}}'
+        csmParametersFile: '$(System.ArtifactsDirectory)\artifact\${{parameters.parameterFileName}}'
         deploymentMode: 'Incremental'
         deploymentName: '${{parameters.deploymentName}}'
         deploymentOutputs: output

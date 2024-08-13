@@ -1,5 +1,5 @@
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
-
+trigger: none
 pool:
   vmImage: 'windows-2019'
 resources:
@@ -22,8 +22,8 @@ stages:
     parameters: 
       azureSubscription: ${{variables.azureSubscription}}
       azureSubscriptionId: ${{variables.azureSubscriptionId}}
-      resourceGroupName: 'PreProd Resources'
-      azureRegion: 'useast2'
+      resourceGroupName: 'PreProd_Resources'
+      azureRegion: 'eastus'
       templateFileName: 'la-template.json'
       parameterFileName: 'la-parameters.json' 
       deploymentName: '$(buildNumber).$(buildNumberCounter).infra'
