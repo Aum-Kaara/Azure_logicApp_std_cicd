@@ -1,0 +1,29 @@
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
+
+pool:
+  vmImage: 'windows-2019'
+resources:
+  pipelines:
+  - pipeline: cipipeline
+    source: 'dev.build.infra'
+
+variables:
+  buildNumber: $[format('{0:yyyy}-{0:MM}-{0:dd}', pipeline.startTime)]
+  buildNumberCounter: $[counter(format('{0:yyyyMMdd}', pipeline.startTime), 1)]
+  azureSubscription: 'PreProd Resources'
+  azureSubscriptionId: '3f4b1df0-5d35-4ac1-a042-6a2eccf5bf1a'
+
+
+stages:
+
+- stage: Deploy
+  jobs: 
+  - template: templates\deploy-template.yml
+    parameters: 
+      azureSubscription: ${{variables.azureSubscription}}
+      azureSubscriptionId: ${{variables.azureSubscriptionId}}
+      resourceGroupName: 'PreProd Resources'
+      azureRegion: 'useast2'
+      templateFileName: 'la-template.json'
+      parameterFileName: 'la-parameters.json' 
+      deploymentName: '$(buildNumber).$(buildNumberCounter).infra'

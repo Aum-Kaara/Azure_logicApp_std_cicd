@@ -1,0 +1,38 @@
+# params that get passed from the calling pipeline yaml file
+parameters:
+- name: azureSubscription
+  type: string
+- name: azureSubscriptionId
+  type: string
+- name: resourceGroupName
+  type: string
+- name: azureRegion
+  type: string
+- name: templateFileName
+  type: string
+- name: parameterFileName
+  type: string
+- name: environmentAzure
+  type: string
+- name: projectName
+  type: string
+- name: deploymentName
+  type: string
+  default: $(build.buildnumber)
+
+steps:
+  - task: AzureResourceManagerTemplateDeployment@3
+    displayName: 'Deploy ARM Template'
+    inputs:
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: ${{parameters.azureSubscription}}
+      subscriptionId: ${{parameters.azureSubscriptionId}}
+      action: 'Create Or Update Resource Group'
+      resourceGroupName: ${{parameters.resourceGroupName}}
+      location: ${{parameters.azureRegion}}
+      templateLocation: 'Linked artifact'
+      csmFile: '$(Pipeline.Workspace)\cipipeline\artifact\${{parameters.templateFileName}}'
+      csmParametersFile: '$(Pipeline.Workspace)\cipipeline\artifact\${{parameters.parameterFileName}}'
+      deploymentMode: 'Incremental'
+      deploymentName: '${{parameters.deploymentName}}'
+      deploymentOutputs: output
