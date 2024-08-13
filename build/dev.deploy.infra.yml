@@ -23,7 +23,7 @@ stages:
       azureSubscription: ${{variables.azureSubscription}}
       azureSubscriptionId: ${{variables.azureSubscriptionId}}
       resourceGroupName: 'PreProd_Resources'
-      azureRegion: 'eastus'
+      azureRegion: 'westus2'
       templateFileName: 'la-template.json'
       parameterFileName: 'la-parameters.json' 
       deploymentName: '$(buildNumber).$(buildNumberCounter).infra'
