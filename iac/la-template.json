@@ -27,7 +27,7 @@
       },
       "kind": {
         "type": "string",
-        "defaultValue": "StorageV2"
+        "defaultValue": "Storage"
       },
       "skuName": {
         "type": "string",
