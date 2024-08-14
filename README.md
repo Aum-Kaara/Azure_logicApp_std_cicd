@@ -44,5 +44,15 @@ az deployment group create --name ExampleDeployment --resource-group ExampleGrou
 Create pipeline in Azure Devops to publish artifacts for release(Deploy) pipeline
 ![image](https://github.com/user-attachments/assets/ea281a74-dd97-44b2-be59-50fe2f435361)
 
+### Create Service Connection 
+![image](https://github.com/user-attachments/assets/6ddeebcf-6e80-45b5-a375-d59c3af368c9)
+
+Use service principal automatic 
+![image](https://github.com/user-attachments/assets/ad4a48f5-1cb6-4341-9814-3b55d5e0a63a)
+
+
 ### Deploy Pipeline for Infra
 Create pipeline in Azure Devops to deploy ARM template to Azure resource group 
+
+![image](https://github.com/user-attachments/assets/126879f8-c9dd-4574-a6d9-b5d35278aad0)
+
