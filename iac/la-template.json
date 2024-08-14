@@ -153,18 +153,5 @@
         }
       }
     ],
-    "outputs": {
-      "logicAppSystemAssignedIdentityTenantId": {
-        "type": "string",
-        "value": "[subscription().tenantid]"
-      },
-      "logicAppSystemAssignedIdentityObjectId": {
-        "type": "string",
-        "value": "[reference(resourceId('Microsoft.Web/sites', parameters('logicAppName')),'2019-08-01', 'full').identity.principalId]"
-      },
-      "LAname": {
-        "type": "string",
-        "value": "[parameters('logicAppName')]"
-      }
-    }
+    "outputs": {}
 }
