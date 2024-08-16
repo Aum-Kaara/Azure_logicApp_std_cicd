@@ -23,7 +23,7 @@ stages:
       azureSubscription: ${{variables.azureSubscription}}
       azureSubscriptionId: ${{variables.azureSubscriptionId}}
       resourceGroupName: 'PreProd_Resources'
-      azureRegion: 'Australia Central'
+      azureRegion: 'southcentralus'
       templateFileName: 'la-template.json'
       parameterFileName: 'la-parameters.json' 
       deploymentName: '$(buildNumber).$(buildNumberCounter).infra'
